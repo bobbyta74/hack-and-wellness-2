@@ -12,15 +12,40 @@
     <h1>Schedule</h1>
     
     <h2>Your current schedule is:</h2>
-    <ul>
-        <li>Monday:<span id=monpres></span></li>
-        <li>Tuesday: <span id="tuepres"></span></li>
-        <li>Wednesday: <span id="wedpres"></span></li>
-        <li>Thursday: <span id="thupres"></span></li>
-        <li>Friday: <span id="fripres"></span></li>
-        <li>Saturday: <span id="satpres"></span></li>
-        <li>Sunday: <span id="sunpres"></span></li>
-    </ul>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Exercise</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td><span id=monpres></span></td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td><span id=tuepres></span></td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td><span id=wedpres></span></td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td><span id=thupres></span></td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td><span id=fripres></span></td>
+        </tr>
+        <tr>
+            <td>Saturday</td>
+            <td><span id=satpres></span></td>
+        </tr>
+        <tr>
+            <td>Sunday</td>
+            <td><span id=sunpres></span></td>
+        </tr>
+    </table>
 
     <h2>Set schedule</h2>
     <form id="scheduleset">
@@ -46,5 +71,7 @@
         </div>
     </form>
     <button onclick="saveschedule()">Save schedule</button>
+    <br>
+    <a href="index.html">Back to the main page</a>
 </body>
 </html>
