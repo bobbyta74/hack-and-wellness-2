@@ -1,0 +1,19 @@
+li {
+    margin:10px;
+}
+
+ul {
+    list-style-type:none;
+}
+
+#scheduleset {
+    display:flex;
+    flex-direction:row;
+}
+
+#exerciseinp {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:15px;
+}

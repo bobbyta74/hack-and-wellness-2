@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set a schedule</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="presentschedule()">
+    <h1>Schedule</h1>
+    
+    <h2>Your current schedule is:</h2>
+    <ul>
+        <li>Monday:<span id=monpres></span></li>
+        <li>Tuesday: <span id="tuepres"></span></li>
+        <li>Wednesday: <span id="wedpres"></span></li>
+        <li>Thursday: <span id="thupres"></span></li>
+        <li>Friday: <span id="fripres"></span></li>
+        <li>Saturday: <span id="satpres"></span></li>
+        <li>Sunday: <span id="sunpres"></span></li>
+    </ul>
+
+    <h2>Set schedule</h2>
+    <form id="scheduleset">
+        <div id="dayslist">
+            <ul>
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li>Saturday</li>
+                <li>Sunday</li>
+            </ul>
+        </div>
+        <div id="exerciseinp">
+            <input id="mon" placeholder="Exercise">
+            <input id="tue" placeholder="Exercise">
+            <input id="wed" placeholder="Exercise">
+            <input id="thu" placeholder="Exercise">
+            <input id="fri" placeholder="Exercise">
+            <input id="sat" placeholder="Exercise">
+            <input id="sun" placeholder="Exercise">
+        </div>
+    </form>
+    <button onclick="saveschedule()">Save schedule</button>
+</body>
+</html>
