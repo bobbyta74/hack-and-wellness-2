@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../setup.css">
+    <script src="../script.js"></script>
+</head>
+<body onload="presentschedule()">
+    <div class="contents">
+        <h1>Schedule</h1>
+        <div class="horizontaldiv">
+            <div class="verticaldiv">
+                <h2>Your current schedule is:</h2>
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>Exercise</th>
+                    </tr>
+                    <tr>
+                        <td>Monday</td>
+                        <td><span id=monpres></span></td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td><span id=tuepres></span></td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td><span id=wedpres></span></td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td><span id=thupres></span></td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td><span id=fripres></span></td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td><span id=satpres></span></td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td><span id=sunpres></span></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="verticaldiv">
+                <h2 id="annoyingh2">Set schedule</h2>
+                <form class="horizontaldiv">
+                    <div id="dayslist">
+                        <ul>
+                            <li>Monday</li>
+                            <li>Tuesday</li>
+                            <li>Wednesday</li>
+                            <li>Thursday</li>
+                            <li>Friday</li>
+                            <li>Saturday</li>
+                            <li>Sunday</li>
+                        </ul>
+                    </div>
+                    <div id="exerciseinp">
+                        <input id="mon" placeholder="Exercise">
+                        <input id="tue" placeholder="Exercise">
+                        <input id="wed" placeholder="Exercise">
+                        <input id="thu" placeholder="Exercise">
+                        <input id="fri" placeholder="Exercise">
+                        <input id="sat" placeholder="Exercise">
+                        <input id="sun" placeholder="Exercise">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <button onclick="saveschedule()">Save schedule</button>
+        <br>
+        <a href="../index.html">Back to homepage</a>
+    </div>
+    
+</body>
+</html>

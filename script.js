@@ -1,27 +1,52 @@
 let daysoftheweek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
-let exercises;
+let mylist = [['monpres', 'mon'], ['tuepres', 'tue'], ['wedpres', 'wed'], ['thupres', 'thu'], ['fripres', 'fri'], ['satpres', 'sat'], ['sunpres', 'sun']];
+let goalslist = [['gmon', 'mongoal1'], ['gtue', 'tuegoal1'], ['gwed', 'wedgoal1'], ['gthu', 'thugoal1'], ['gfri', 'frigoal1'], ['gsat', 'satgoal1'], ['gsun', 'sungoal1']]
+
+//setup.html
 function presentschedule() {
+
     //Replace placeholders (monpres etc.) with values from localstorage (e.g. Monday's exercise: deadlift)
-    document.getElementById("monpres").innerHTML = localStorage.getItem("mon");
-    document.getElementById("tuepres").innerHTML = localStorage.getItem("tue");
-    document.getElementById("wedpres").innerHTML = localStorage.getItem("wed");
-    document.getElementById("thupres").innerHTML = localStorage.getItem("thu");
-    document.getElementById("fripres").innerHTML = localStorage.getItem("fri");
-    document.getElementById("satpres").innerHTML = localStorage.getItem("sat");
-    document.getElementById("sunpres").innerHTML = localStorage.getItem("sun");
+    //Iterates through 2d list
+    for (let i=0;i < mylist.length; i++) {
+        console.log(mylist[i]);
+        let sublist = mylist[i];
+        document.getElementById(sublist[0]).innerHTML = localStorage.getItem(sublist[1]);
+        document.getElementById(sublist[0]+'1').innerHTML = localStorage.getItem(sublist[1]);
+    }
 }
 
+//setup.html
 function saveschedule() {
-    localStorage.clear()
     for(let i=0; i < daysoftheweek.length; i++) {
         //Make localstorage key and add value of text input to it (e.g. tue, benchpress)
         localStorage.setItem(daysoftheweek[i], document.getElementById(daysoftheweek[i]).value);
     }
     presentschedule();
-    exercises = [localStorage.getitem("mon"), localStorage.getItem("tue"), localStorage.getItem("wed"), localStorage.getItem("thu"), localStorage.getItem("fri"). localStorage.getItem("sat"), localStorage.getItem("sun")]
 }
 
+//goals.html
+function savegoals() {
+    for (let day in daysoftheweek) {
+        //Assigns goals to localStorage variables (even if empty)
+        localStorage.setItem('g'+day, document.getElementById(day + "goal").value);
+        
+    }
+    presentgoals();
+}
 
+//goals.html
+function presentgoals() {
+    for(let i=0; i < goalslist.length; i++) {
+        let sublist = goalslist[i];
+        //Gets goal from localStorage variable (e.g. gmon), displays it on span (e.g. mongoal1)
+        if (localStorage.getItem(sublist[0]) != null && localStorage.getItem(sublist[0]) != 0) {
+            document.getElementById(sublist[1]).innerHTML = localStorage.getItem(sublist[0]);
+        }
+    }
+    presentschedule();
+}
+
+//index.html
 function todaysexercise() {
     //Get day of the week (number)
     const d = new Date();
@@ -36,7 +61,7 @@ function todaysexercise() {
     console.log(exercises);
     //Unless there's no value or the string is empty, output today's exercise to the h2 on the main page (except it doesn't want to work because localstorage doesn't sync between webpages!!!!!!!!!)
     if (localStorage.getItem(day) != null && localStorage.getItem(day).trim().length != 0) {
-        document.getElementById("whattodo").innerHTML = "Today's exercise is" + localStorage.getItem(day);
+        document.getElementById("whattodo").innerHTML = "Today's exercise is " + localStorage.getItem(day);
     } else {
         document.getElementById("whattodo").innerHTML = "Today is a rest day!";
     }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../script.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>Goals</title>
+</head>
+<body onload="presentgoals()">
+    <div class="contents">
+        <h1>Set your goals</h1>
+        <div class="horizontaldiv">
+            <div class="verticaldiv">
+                <h2>Your current goals are:</h2>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Weight</th>
+                    </tr>
+                    <tr>
+                        <td><span id="monpres1"></span></td>
+                        <td><span id="mongoal1"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span id="tuepres1"></span></td>
+                        <td><span id="tuegoal1"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span id="wedpres1"></span></td>
+                        <td><span id="wedgoal1"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span id="thupres1"></span></td>
+                        <td><span id="thugoal1"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span id="fripres1"></span></td>
+                        <td><span id="frigoal1"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span id="satpres1"></span></td>
+                        <td><span id="satgoal1"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span id="sunpres1"></span></td>
+                        <td><span id="sungoal1"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <form>
+                <ul class="verticaldiv">
+                    <li><span id="monpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="mongoal"></li>
+                    <li><span id="tuepres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="tuegoal"></li>
+                    <li><span id="wedpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="wedgoal"></li>
+                    <li><span id="thupres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="thugoal"></li>
+                    <li><span id="fripres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="frigoal"></li>
+                    <li><span id="satpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="satgoal"></li>
+                    <li><span id="sunpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="sungoal"></li>
+                </ul>
+            </form>
+        </div>
+        <button onclick="savegoals()">Save goals</button>
+        <a href="../index.html">Back to homepage</a>
+    </div>
+</body>
+</html>
