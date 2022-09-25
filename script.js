@@ -8,18 +8,28 @@ function presentschedule() {
     //Replace placeholders (monpres etc.) with values from localstorage (e.g. Monday's exercise: deadlift)
     //Iterates through 2d list
     for (let i=0;i < mylist.length; i++) {
-        console.log(mylist[i]);
         let sublist = mylist[i];
         document.getElementById(sublist[0]).innerHTML = localStorage.getItem(sublist[1]);
-        document.getElementById(sublist[0]+'1').innerHTML = localStorage.getItem(sublist[1]);
+        try {
+            document.getElementById(sublist[0]+'1').innerHTML = localStorage.getItem(sublist[1]);
+        } catch {
+            break;
+        }
     }
 }
 
 //setup.html
 function saveschedule() {
     for(let i=0; i < daysoftheweek.length; i++) {
+        for (let i in daysoftheweek) {
+            localStorage.removeItem(i);
+        }
         //Make localstorage key and add value of text input to it (e.g. tue, benchpress)
-        localStorage.setItem(daysoftheweek[i], document.getElementById(daysoftheweek[i]).value);
+        if (document.getElementById(daysoftheweek[i]).value != null && document.getElementById(daysoftheweek[i]).value.trim() != "") {
+            localStorage.setItem(daysoftheweek[i], document.getElementById(daysoftheweek[i]).value);
+        } else if (document.getElementById(daysoftheweek[i]).value == null){
+            localStorage.setItem(daysoftheweek[i], "rest");
+        }
     }
     presentschedule();
 }
@@ -28,7 +38,11 @@ function saveschedule() {
 function savegoals() {
     for (let day in daysoftheweek) {
         //Assigns goals to localStorage variables (even if empty)
-        localStorage.setItem('g'+day, document.getElementById(day + "goal").value);
+        if (document.getElementById(daysoftheweek[day]+'pres').innerHTML != "rest") {
+            localStorage.setItem('g'+daysoftheweek[day], document.getElementById(daysoftheweek[day] + "goal").value);
+        } else {
+            localStorage.setItem('g'+daysoftheweek[day], 0);
+        }
         
     }
     presentgoals();
