@@ -44,7 +44,7 @@ function savegoals() {
         }
         
     }
-    presentgoals();
+    window.location.reload();
 }
 
 //goals.html
@@ -71,10 +71,14 @@ function todaysexercise() {
         day = 'sun';
     }
 
-    console.log(exercises);
+    console.log(day);
     //Unless there's no value or the string is empty, output today's exercise to the h2 on the main page (except it doesn't want to work because localstorage doesn't sync between webpages!!!!!!!!!)
     if (localStorage.getItem(day) != null && localStorage.getItem(day).trim().length != 0) {
-        document.getElementById("whattodo").innerHTML = "Today's exercise is " + localStorage.getItem(day);
+        if (localStorage.getItem(day) != "rest") {
+            document.getElementById("whattodo").innerHTML = "Today's exercise is " + localStorage.getItem(day);
+        } else {
+            document.getElementById("whattodo").innerHTML = "Today is a rest day!";
+        }
     } else {
         document.getElementById("whattodo").innerHTML = "Today is a rest day!";
     }
@@ -82,3 +86,28 @@ function todaysexercise() {
 
 }
 
+//index.html
+function comparerecs() {
+    //Get day of the week (number)
+    const d = new Date();
+    let day = d.getDay();
+    //Convert number to name of day of the week
+    if (day > 0) {
+        day = daysoftheweek[day - 1];
+    } else {
+        day = 'sun';
+    }
+
+    //checks if it's a rest day (can't beat records if you're not lifting)
+    if (localStorage.getItem(day) != "rest") {
+        if (Number(localStorage.getItem('g'+day)) <= Number(document.getElementById("todaysrec").value)) {
+            console.log("pls halp");
+            document.getElementById("goalachieved").innerHTML = "Congrats! You've reached your goal of " + localStorage.getItem('g'+day) + 'kg ' + localStorage.getItem(day) + '!';
+        } else {
+            document.getElementById("goalachieved").innerHTML = "Keep pushing! You're " + String(Number(localStorage.getItem('g'+day)) - Number(document.getElementById("todaysrec").value)) + "kg away from reaching your goal of " + localStorage.getItem('g'+day) + 'kg ' + localStorage.getItem(day) + '!';
+        }
+
+    } else {
+        document.getElementById("goalachieved").innerHTML = "Come back tomorrow!"
+    }
+}

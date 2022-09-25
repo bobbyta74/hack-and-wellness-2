@@ -48,17 +48,32 @@
                     </tr>
                 </table>
             </div>
-            <form>
-                <ul class="verticaldiv">
-                    <li><span id="monpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="mongoal"></li>
-                    <li><span id="tuepres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="tuegoal"></li>
-                    <li><span id="wedpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="wedgoal"></li>
-                    <li><span id="thupres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="thugoal"></li>
-                    <li><span id="fripres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="frigoal"></li>
-                    <li><span id="satpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="satgoal"></li>
-                    <li><span id="sunpres"></span><input type="number" min="0" value="0" placeholder="Enter weight" id="sungoal"></li>
-                </ul>
-            </form>
+            <div class="verticaldiv">
+                <h2 id="annoyingh2">Set goals</h2>
+            
+                <form class="horizontaldiv">
+                    <div>
+                        <ul>
+                            <li><span id="monpres"></span></li>
+                            <li><span id="tuepres"></span></li>
+                            <li><span id="wedpres"></span></li>
+                            <li><span id="thupres"></span></li>
+                            <li><span id="fripres"></span></li>
+                            <li><span id="satpres"></span></li>
+                            <li><span id="sunpres"></span></li>
+                        </ul>
+                    </div>
+                    <div id="exerciseinp" >
+                        <input type="number" min="0" value="0" placeholder="Enter weight" id="mongoal">
+                        <input type="number" min="0" value="0" placeholder="Enter weight" id="tuegoal">
+                        <input type="number" min="0" value="0" placeholder="Enter weight" id="wedgoal">
+                        <input type="number" min="0" value="0" placeholder="Enter weight" id="thugoal">
+                        <input type="number" min="0" value="0" placeholder="Enter weight" id="frigoal">
+                        <input type="number" min="0" value="0" placeholder="Enter weight" id="satgoal">
+                        <input type="number" min="0" value="0" placeholder="Enter weight" id="sungoal">
+                    </div>
+                </form>
+            </div>
         </div>
         <button onclick="savegoals()">Save goals</button>
         <a href="../index.html">Back to homepage</a>
