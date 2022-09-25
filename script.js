@@ -9,11 +9,12 @@ function presentschedule() {
     //Iterates through 2d list
     for (let i=0;i < mylist.length; i++) {
         let sublist = mylist[i];
+        console.log(localStorage.getItem(sublist[1]));
         document.getElementById(sublist[0]).innerHTML = localStorage.getItem(sublist[1]);
         try {
             document.getElementById(sublist[0]+'1').innerHTML = localStorage.getItem(sublist[1]);
         } catch {
-            break;
+            console.log("fail");
         }
     }
 }
@@ -21,13 +22,11 @@ function presentschedule() {
 //setup.html
 function saveschedule() {
     for(let i=0; i < daysoftheweek.length; i++) {
-        for (let i in daysoftheweek) {
-            localStorage.removeItem(i);
-        }
+        localStorage.removeItem(daysoftheweek[i]);
         //Make localstorage key and add value of text input to it (e.g. tue, benchpress)
         if (document.getElementById(daysoftheweek[i]).value != null && document.getElementById(daysoftheweek[i]).value.trim() != "") {
             localStorage.setItem(daysoftheweek[i], document.getElementById(daysoftheweek[i]).value);
-        } else if (document.getElementById(daysoftheweek[i]).value == null){
+        } else {
             localStorage.setItem(daysoftheweek[i], "rest");
         }
     }
